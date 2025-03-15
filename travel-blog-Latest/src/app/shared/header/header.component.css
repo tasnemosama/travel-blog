@@ -35,36 +35,3 @@ nav.navbar {
 .navbar-nav .nav-link:hover {
   color: #16b6d5 !important; 
 }
-
-.image-container {
-  position: relative;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.overlay-text {
-  position: absolute;  
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-  text-align: center;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%; 
-}
-
-.overlay-text h2 {
-  font-size: 70px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.overlay-text a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
