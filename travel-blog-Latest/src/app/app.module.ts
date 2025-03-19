@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { PhotographyComponent } from './pages/photography/photography.component';
 import { SportsComponent } from './pages/sports/sports.component';
-import { TravelComponent } from './pages/travel/travel.component';
 import { BusinessComponent } from './pages/business/business.component';
 import { FashionComponent } from './pages/fashion/fashion.component';
 import { FeaturesComponent } from './pages/features/features.component';
-import { ContactComponent } from './pages/contact/contact.component';
 import { FormsModule } from '@angular/forms';
+
+// ✅ استيراد TravelComponent في `imports` بدلاً من `declarations`
+import { TravelComponent } from './pages/travel/travel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,18 +22,16 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     PhotographyComponent,
     SportsComponent,
-    TravelComponent,
     BusinessComponent,
     FashionComponent,
-    FeaturesComponent,
-
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
-   ContactComponent
-
+    TravelComponent // ✅ يجب أن يكون هنا وليس في `declarations`
   ],
   providers: [],
   bootstrap: [AppComponent]
