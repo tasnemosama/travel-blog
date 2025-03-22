@@ -1,62 +1,82 @@
-<header class="navbar navbar-expand-lg fixed-top">
-  <div class="container d-flex justify-content-between align-items-center w-100">
-    
-    <div>
-      <button class="btn btn-light border rounded-circle">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
+<header>
+  <!-- Top Header Bar -->
+  <div class="top-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
 
-    <div>
-      <img src="logo_home.png" alt="Logo" class="logo">
-    </div>
+        <div class="header-center">
+          <a routerLink="/" class="logo-link">
+            <img src="logo_home.png" alt="Travel Blog" class="logo">
+          </a>
+        </div>
 
-    <div>
-      <a routerLink="/facebook" class="text-light mx-2"><i class="fab fa-facebook"></i></a>
-      <a routerLink="/twitter" class="text-light mx-2"><i class="fab fa-twitter"></i></a>
-      <a routerLink="/instagram" class="text-light mx-2"><i class="fab fa-instagram"></i></a>
+        <div class="header-right">
+          <div class="social-links">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
-    
   </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top mt-5">
+  <!-- Main Navigation -->
+  <nav class="main-nav">
     <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" (click)="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" routerLink="/home" routerLinkActive="active" data-bs-toggle="dropdown">HOME</a>
+      <div class="nav-container" id="navbarContent">
+        <ul class="nav-menu">
+          <li class="nav-item has-dropdown" #homeDropdown>
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" 
+               (click)="toggleDropdown($event, homeDropdown)">HOME</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/home/list-layout">Home: List Layout</a></li>
-              <li><a class="dropdown-item" routerLink="/home/grid-layout">Home: Grid Layout</a></li>
-              <li><a class="dropdown-item" routerLink="/home/grid-no-sidebar">Home: Grid No Sidebar</a></li>
-              <li><a class="dropdown-item" routerLink="/home/boxed-layout">Home: Boxed Layout</a></li>
+              <li><a routerLink="/home/list-layout" (click)="closeMobileMenu()">List Layout</a></li>
+              <li><a routerLink="/home/grid-layout" (click)="closeMobileMenu()">Grid Layout</a></li>
+              <li><a routerLink="/home/grid-no-sidebar" (click)="closeMobileMenu()">Grid No Sidebar</a></li>
+              <li><a routerLink="/home/boxed-layout" (click)="closeMobileMenu()">Boxed Layout</a></li>
             </ul>
           </li>
-
-          <li class="nav-item"><a class="nav-link" routerLink="/photography" routerLinkActive="active">PHOTOGRAPHY</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/sports" routerLinkActive="active">SPORTS</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/travel" routerLinkActive="active">TRAVEL</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/business" routerLinkActive="active">BUSINESS</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/fashion" routerLinkActive="active">FASHION</a></li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" routerLink="/features" routerLinkActive="active" data-bs-toggle="dropdown">FEATURES</a>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/photography" routerLinkActive="active" (click)="closeMobileMenu()">PHOTOGRAPHY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/sports" routerLinkActive="active" (click)="closeMobileMenu()">SPORTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/travel" routerLinkActive="active" (click)="closeMobileMenu()">TRAVEL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/business" routerLinkActive="active" (click)="closeMobileMenu()">BUSINESS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/fashion" routerLinkActive="active" (click)="closeMobileMenu()">FASHION</a>
+          </li>
+          <li class="nav-item has-dropdown" #featuresDropdown>
+            <a class="nav-link" routerLink="/features" routerLinkActive="active" 
+               (click)="toggleDropdown($event, featuresDropdown)">FEATURES</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/features/standard">Post Format: Standard</a></li>
-              <li><a class="dropdown-item" routerLink="/features/gallery">Post Format: Gallery</a></li>
-              <li><a class="dropdown-item" routerLink="/features/audio">Post Format: Audio</a></li>
-              <li><a class="dropdown-item" routerLink="/features/link">Post Format: Link</a></li>
-              <li><a class="dropdown-item" routerLink="/features/video">Post Format: Video</a></li>
+              <li><a routerLink="/features/standard" (click)="closeMobileMenu()">Post Format: Standard</a></li>
+              <li><a routerLink="/features/gallery" (click)="closeMobileMenu()">Post Format: Gallery</a></li>
+              <li><a routerLink="/features/audio" (click)="closeMobileMenu()">Post Format: Audio</a></li>
+              <li><a routerLink="/features/link" (click)="closeMobileMenu()">Post Format: Link</a></li>
+              <li><a routerLink="/features/video" (click)="closeMobileMenu()">Post Format: Video</a></li>
             </ul>
           </li>
-
-          <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">CONTACT</a></li>
-
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">CONTACT</a>
+          </li>
         </ul>
       </div>
     </div>
